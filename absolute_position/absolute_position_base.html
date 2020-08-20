@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body  {
+            padding: 0px;
+            margin: 0px;
+            height: 100%; /*#main的height 100%继承自父节点（body），因此body的高度要设置为100%*/
+        }
+        #main {
+            position: relative;
+            background-color: #000000;
+            height: 100%;
+        }
+        #nav {
+            background-color: #85d989;
+            width: 80%;
+            height: 50px;
+        }
+        #content {
+            background-color: #cc85d9;
+            width: 100%;
+            position: absolute;
+            top: 50px;
+            bottom: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="main">
+
+    <div id="nav">nav [nav在文档流中]</div>
+    <div id="content">
+        <div>#content 通过绝对定位脱离了文档流，通过top：50px的属性，距离了顶部50px</div>
+        <div>可以看到#content 的css里并没有设置height 100%，这里说明绝对定位会自动填充剩下的高度？</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>9</div>
+
+        <div style="float:left;width:80%;background: #fff">float</div>
+
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+
+    </div>
+</div>
+
+</body>
+</html>
+</body>
+</html>

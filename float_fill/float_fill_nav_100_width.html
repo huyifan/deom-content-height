@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body  {
+            padding: 0px;
+            margin: 0px;
+            height: 100%; /*#main的height 100%继承自父节点（body），因此body的高度要设置为100%*/
+        }
+        #main {
+            background-color: #999;
+            height: 100%;
+        }
+
+        #nav {
+            background-color: #85d989;
+            width: 100%;
+            height: 50px;
+            float: left;
+        }
+
+        #content {
+            background-color: #cc85d9;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="main">
+
+    <div id="nav">nav [nav通过left属性脱离了文档流，若此处宽度不设置为100%，则context里的内容，会上浮至此]</div>
+    <div id="content">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>contenxt没有逻辑文档流，当其高度为100%时，高度会与父节点（#content）一样</div>
+
+        <div>7</div>
+        <div style="float:left;width:100%;background: #fff">float</div>
+        <div>9</div>
+        <div>10</div>
+        <div style="float:left;width:80%;background: #fff">float</div>
+
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+
+    </div>
+</div>
+
+</body>
+</html>
+</body>
+</html>
