@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .border{
+            border: black 2px solid;
+        }
+
+        .box {
+            border: black 2px solid;
+            width: 800px;
+            height: 100px;
+            margin-top: 10px;
+        }
+
+        .all-center {
+            line-height: 100px;
+            text-align: center;
+        }
+
+        .cell {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .box-child {
+            width: 400px;
+            height: 70px;
+            background: #85d989;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #outer {
+            text-align: center;
+        }
+
+        #outer::before {
+            content: " ";
+            height: 100%;
+            width: 1%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .margin0 {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>1、行内元素，水平居中，垂直居中</h1>
+
+<div class="box all-center">
+    <div class="cell"></div>
+    <span>水平text-aligin|垂直用line-height（行高），与容器高度一致即可</span>
+</div>
+
+<div id='outer' class="box">
+    <span>CSS :before 选择器</span>
+    <span>实现</span>
+</div>
+
+
+<div class="box flex">
+    <div>
+        <span>使用flex</span>
+        <span>布局</span>
+    </div>
+</div>
+
+<div><b>【注意！】</b></div>
+<div class="box">
+    <span style="margin: 0 auto">子元素若为行级元素，则无法使用margin 0 auto的方式水平居中</span>
+</div>
+
+
+<h1>2、块级元素的水平居中</h1>
+
+<div class="box" style="width: 100%">
+    <div class="box-child margin0">水居：( 宽度不限：100% or 固定值 )margin</div>
+</div>
+
+<div class="box" style="text-align: center;width:100%">
+    <div style="display: inline;">水居：让块级变行内 不定宽块状元素</div>
+</div>
+
+
+<h1>3、块级元素的水平垂直居中</h1>
+
+<div class="box flex">
+    <div class="box-child"> 使用flex布局|all居： 垂直+水平</div>
+</div>
+
+
+<h4>父容器宽度已经知的情况下用position：使用父节点相对定位；子节点绝对定位</h4>
+
+<div class="box" style="position: relative">
+    <div class="box-child"
+         style="position: absolute;left: 50%;top: 50%;margin: calc(-70px/2) 0px 0px calc(-400px/2)">
+        需要减去自身容器宽高50%的距离
+    </div>
+</div>
+
+<div class="box" style="position: relative">
+    <div class="box-child"
+         style="position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);">
+        若子元素宽高未知：transform: translate(-50%,-50%);
+    </div>
+</div>
+
+
+<div class="box">
+
+    <div style="position: relative;width: 100%;height: 100%;background:#4b5dff">
+        <div
+                style="position: absolute;top: 50%;left:50%;transform: translate(-50%,-50%);background: #efff5b">
+           父元素和子元素宽高均未知
+        </div>
+    </div>
+
+</div>
+
+<div class="box">
+
+    <div style="width: 100%;height: 100%;background:#4b5dff">
+        <div
+                style="width:200px;position: relative;top: 50%;left:50%;transform: translate(-50%,-50%);background: #efff5b">
+            若父容器下只有一个元素，且父元素设置了高度，则只需要使用相对定位即可
+        </div>
+    </div>
+
+</div>
+
+
+<h1>4、块级元素横向布局</h1>
+
+<div class="box">
+
+    <div>使用display:inline-block</div>
+
+
+    <div class="border" style="width:150px;height: 50px;display: inline-block">块元素1</div>
+    <div class="border" style="width:150px;height: 50px;display: inline-block">块元素2</div>
+    <div class="border" style="width:150px;height: 50px;display: inline-block">块元素3</div>
+
+
+</div>
+
+
+<div class="box">
+
+    <div>使用float属性</div>
+
+    <div class="border" style="width:150px;height: 50px;float: left">块元素1</div>
+    <div class="border" style="width:150px;height: 50px;float: left">块元素2</div>
+    <div class="border" style="width:150px;height: 50px;float: left">块元素3</div>
+
+
+</div>
+
+
+
+</body>
+</html>
